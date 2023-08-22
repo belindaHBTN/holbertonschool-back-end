@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""Convert JSON to CSV format"""
+"""Export to CSV format"""
+import csv
+import json
 import requests
 import sys
-import json
-import csv
-
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
