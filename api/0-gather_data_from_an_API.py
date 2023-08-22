@@ -8,7 +8,8 @@ if __name__ == "__main__":
     if len(sys.argv) == 2:
         id = sys.argv[1]
         user = "https://jsonplaceholder.typicode.com/users/{}".format(id)
-        todos = "https://jsonplaceholder.typicode.com/todos?userId={}".format(id)
+        todos = "https://jsonplaceholder.typicode.com/todos?userId={}"\
+                .format(id)
 
         name = requests.get(user).json().get("name")
         all_todos = requests.get(todos).json()
@@ -18,8 +19,7 @@ if __name__ == "__main__":
             if todo['completed'] is True:
                 completed_titles.append(todo.get("title"))
 
-        print("Employee {} is done with tasks({}/{}):".format(name,
-            len(completed_titles), len(all_todos)))
+        print("Employee {} is done with tasks({}/{}):"
+              .format(name, len(completed_titles), len(all_todos)))
         for completed_title in completed_titles:
-            print('\t' + completed_title)
-
+            print('\t ' + completed_title)
